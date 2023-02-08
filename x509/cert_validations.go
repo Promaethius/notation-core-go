@@ -16,7 +16,6 @@ var kuLeafCertBlocked = x509.KeyUsageContentCommitment |
 	x509.KeyUsageKeyAgreement |
 	x509.KeyUsageCertSign |
 	x509.KeyUsageCRLSign |
-	x509.KeyUsageEncipherOnly |
 	x509.KeyUsageDecipherOnly
 var kuLeafCertBlockedString = "ContentCommitment, KeyEncipherment, DataEncipherment, KeyAgreement, " +
 	"CertSign, CRLSign, EncipherOnly, DecipherOnly"
@@ -181,8 +180,6 @@ func validateExtendedKeyUsage(cert *x509.Certificate, expectedEku x509.ExtKeyUsa
 
 	excludedEkus := []x509.ExtKeyUsage{
 		x509.ExtKeyUsageAny,
-		x509.ExtKeyUsageServerAuth,
-		x509.ExtKeyUsageClientAuth,
 		x509.ExtKeyUsageEmailProtection,
 		x509.ExtKeyUsageOCSPSigning,
 	}
